@@ -16,17 +16,17 @@
 # 2
 
 def countSameChar(s, i = 0)
-  countSameChar = 1
+  count = 1
   while i < s.size do
     if s[i] == s[i + 1]
-      countSameChar += 1
+      count += 1
     else
       i += 1
       break
     end
     i += 1
   end
-  return countSameChar
+  return count
 end
 
 # Метод для вывода последовательности длины count_lines
