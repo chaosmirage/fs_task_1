@@ -11,43 +11,43 @@
 
 =end
 
-# Процедура для поиска количества одинковых символов начиная с iго символа до первого другого
-# puts count_same_char("1122113, 5")
+# Метод для поиска количества одинковых символов начиная с iго символа до первого другого
+# puts countSameChar("1122113, 5")
 # 2
 
-def count_same_char(s, i = 0)
-  count_same_char = 1
+def countSameChar(s, i = 0)
+  countSameChar = 1
   while i < s.size do
     if s[i] == s[i + 1]
-      count_same_char += 1
+      countSameChar += 1
     else
       i += 1
       break
     end
     i += 1
   end
-  return count_same_char
+  return countSameChar
 end
 
-# Процедура для вывода последовательности длины count_lines
+# Метод для вывода последовательности длины count_lines
 def start(count_lines,item = "1")
   puts item
   i = 0
 
   while i < count_lines do
-    next_string = ""
+    next_item = ""
     j = 0
 
     while j < item.size do
       # puts "j: #{j}"
 
-      # puts "#{next_string}(next_string) = #{count_same_char(item, j).to_s}(item.count(item[j]).to_s) + #{item[j]}(item[j])"
+      # puts "#{next_item}(next_item) = #{countSameChar(item, j).to_s}(item.count(item[j]).to_s) + #{item[j]}(item[j])"
 
-      next_string = next_string + count_same_char(item, j).to_s + item[j]
+      next_item = next_item + countSameChar(item, j).to_s + item[j]
 
       # Изменение значения индекса для перехода к следующей группе символов
-      if count_same_char(item, j) > 0
-        j += count_same_char(item, j) - 1
+      if countSameChar(item, j) > 0
+        j += countSameChar(item, j) - 1
       end
 
       # puts "current item: #{item}"
@@ -58,8 +58,8 @@ def start(count_lines,item = "1")
       j += 1
     end
 
-    puts "#{next_string}"
-    item = next_string
+    puts "#{next_item}"
+    item = next_item
 
     i += 1
   end
