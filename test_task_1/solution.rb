@@ -1,16 +1,16 @@
-=begin
-  1
-  11
-  21
-  1211
-  111221
-  312211
-=end
+# Result:
+# 1
+# 11
+# 21
+# 1211
+# 111221
+# 312211
+# 13112221
+# 1113213211
 
-# Метод для поиска количества одинковых символов начиная с iго символа до первого отличного от него
+# Метод для поиска количества одинковых символов начиная с iго символа до   первого отличного от него.
 # puts countSameChar("1122113", 5)
 # 2
-
 def countSameChar(s, i = 0)
   count = 1
   while i < s.size do
@@ -22,12 +22,14 @@ def countSameChar(s, i = 0)
     end
     i += 1
   end
+
   count
 end
 
 # Метод для вывода последовательности длины count_lines
-def start(count_lines,item = "1")
+def start(count_lines, item = "1")
   puts item
+
   i = 0
   while i < count_lines do
     next_item = ""
@@ -41,9 +43,10 @@ def start(count_lines,item = "1")
       j += 1
     end
 
-    puts next_item
     item = next_item
     i += 1
+
+    puts next_item
   end
 end
 
