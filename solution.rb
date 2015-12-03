@@ -7,9 +7,9 @@
 # 13112221
 # 1113213211
 
-# Метод для поиска количества одинковых символов начиная с iго символа до
+# Метод для поиска количества одинаковых символов начиная с iго символа до
 #   первого отличного от него.
-def count_same_char(s, i = 0)
+def count_equal_char(s, i = 0)
   count = 1
   while i < s.size
     if s[i] == s[i + 1]
@@ -25,28 +25,28 @@ def count_same_char(s, i = 0)
 end
 
 # Метод для вывода последовательности длины count_lines
-def start(count_lines, s = "1")
-  puts s
+def start(count_lines, line = "1")
+  puts line
 
   i = 0
   while i < count_lines
-    next_s = ""
+    next_line = ""
 
     j = 0
-    while j < s.size
-      next_s += count_same_char(s, j).to_s + s[j]
+    while j < line.size
+      next_line += count_equal_char(line, j).to_s + line[j]
       # Изменение значения индекса для перехода к следующей группе символов
       #   отличного от текущего
-      if count_same_char(s, j) > 0
-        j += count_same_char(s, j)
+      if count_equal_char(line, j) > 0
+        j += count_equal_char(line, j)
       else
         j += 1
         break
       end
     end
 
-    s = next_s
-    puts next_s
+    line = next_line
+    puts next_line
 
     i += 1
   end
