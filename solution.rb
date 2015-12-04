@@ -25,9 +25,9 @@ def get_lines(count_lines, line = "1")
     next_line = ""
     j = 0
     while (j < line.size)
-      state = "CountingIndenticalChars" if count_equal_char(line, j) > 0
+      state = "CountingEqualChars" if count_equal_char(line, j) > 0
       case state
-      when "CountingIndenticalChars"
+      when "CountingEqualChars"
           next_line += count_equal_char(line, j).to_s + line[j]
           j += count_equal_char(line, j)
       end
@@ -36,4 +36,4 @@ def get_lines(count_lines, line = "1")
   end
 end
 
-get_lines(7)
+get_lines(8)
