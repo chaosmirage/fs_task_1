@@ -11,13 +11,8 @@
 #   первого отличного от него.
 def count_equal_char(s, i = 0)
   count = 1
-  while i < s.size
-    if s[i] == s[i + 1]
-      count += 1
-    else
-      i += 1
-      break
-    end
+  loop do
+    s[i] == s[i + 1] ? count += 1 : break
     i += 1
   end
 
@@ -33,16 +28,11 @@ def start(count_lines, line = "1")
     next_line = ""
 
     j = 0
-    while j < line.size
-      next_line += count_equal_char(line, j).to_s + line[j]
+    while (j < line.size) && (count_equal_char(line, j) > 0)
       # Изменение значения индекса для перехода к следующей группе символов
       #   отличного от текущего
-      if count_equal_char(line, j) > 0
-        j += count_equal_char(line, j)
-      else
-        j += 1
-        break
-      end
+      next_line += count_equal_char(line, j).to_s + line[j]
+      j += count_equal_char(line, j)
     end
 
     line = next_line
