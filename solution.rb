@@ -15,31 +15,25 @@ def count_equal_char(s, i = 0)
     s[i] == s[i + 1] ? count += 1 : break
     i += 1
   end
-
   count
 end
 
 # Метод для вывода последовательности длины count_lines
-def start(count_lines, line = "1")
-  puts line
-
-  i = 0
-  while i < count_lines
+def get_lines(count_lines, line = "1")
+  for i in 0..count_lines - 1
+    puts line
     next_line = ""
-
     j = 0
-    while (j < line.size) && (count_equal_char(line, j) > 0)
-      # Изменение значения индекса для перехода к следующей группе символов
-      #   отличного от текущего
-      next_line += count_equal_char(line, j).to_s + line[j]
-      j += count_equal_char(line, j)
+    while (j < line.size)
+      state = "CountingIndenticalChars" if count_equal_char(line, j) > 0
+      case state
+      when "CountingIndenticalChars"
+          next_line += count_equal_char(line, j).to_s + line[j]
+          j += count_equal_char(line, j)
+      end
     end
-
     line = next_line
-    puts next_line
-
-    i += 1
   end
 end
 
-start(7)
+get_lines(7)
