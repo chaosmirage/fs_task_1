@@ -25,9 +25,9 @@ def get_lines(count_lines, line = "1")
     next_line = ""
     j = 0
     while (j < line.size)
-      state = "CountingEqualChars" if count_equal_char(line, j) > 0
+      state = "CreatingNewLineChars" if count_equal_char(line, j) > 0
       case state
-      when "CountingEqualChars"
+      when "CreatingNewLineChars"
           next_line += count_equal_char(line, j).to_s + line[j]
           j += count_equal_char(line, j)
       end
